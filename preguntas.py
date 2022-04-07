@@ -28,12 +28,12 @@ def pregunta_01():
 def pregunta_02():
     """
     ¿Cuál es la cantidad de columnas en la tabla `tbl0.tsv`?
-
     Rta/
     4
-
     """
-    return
+    colums = len(tbl0.axes[1])
+
+    return colums
 
 
 def pregunta_03():
