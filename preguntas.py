@@ -40,7 +40,6 @@ def pregunta_03():
     """
     ¿Cuál es la cantidad de registros por cada letra de la columna _c1 del archivo
     `tbl0.tsv`?
-
     Rta/
     A     8
     B     7
@@ -48,9 +47,11 @@ def pregunta_03():
     D     6
     E    14
     Name: _c1, dtype: int64
-
     """
-    return
+
+    contar = tbl0.groupby('_c1').value_counts() 
+
+    return contar
 
 
 def pregunta_04():
