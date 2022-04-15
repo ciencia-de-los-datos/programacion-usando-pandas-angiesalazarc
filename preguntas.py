@@ -153,10 +153,10 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
     """
 
-    tbl0['year'] =  tbl0['_c3'].apply(lambda x: (str(x)[:4]))
-    tbl0.drop(['suma'], axis=1)
+    df1 = pd.read_csv("tbl0.tsv", sep="\t")
+    df1['year'] =  df1['_c3'].apply(lambda x: (str(x)[:4]))
 
-    return tbl0
+    return df1
 
 
 def pregunta_10():
