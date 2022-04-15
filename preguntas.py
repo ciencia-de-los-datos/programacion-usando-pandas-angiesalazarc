@@ -125,7 +125,6 @@ def pregunta_07():
 def pregunta_08():
     """
     Agregue una columna llamada `suma` con la suma de _c0 y _c2 al archivo `tbl0.tsv`.
-
     Rta/
         _c0 _c1  _c2         _c3  suma
     0     0   E    1  1999-02-28     1
@@ -135,15 +134,14 @@ def pregunta_08():
     37   37   C    9  1997-07-22    46
     38   38   E    1  1999-09-28    39
     39   39   E    5  1998-01-26    44
-
     """
-    return
+    tbl0['suma'] = tbl0['_c0'] + tbl0['_c2']
 
+    return tbl0
 
 def pregunta_09():
     """
     Agregue el año como una columna al archivo `tbl0.tsv`.
-
     Rta/
         _c0 _c1  _c2         _c3  year
     0     0   E    1  1999-02-28  1999
@@ -153,9 +151,12 @@ def pregunta_09():
     37   37   C    9  1997-07-22  1997
     38   38   E    1  1999-09-28  1999
     39   39   E    5  1998-01-26  1998
-
     """
-    return
+
+    tbl0['year'] =  tbl0['_c3'].apply(lambda x: (str(x)[:4]))
+    tbl0.drop(['suma'], axis=1)
+
+    return tbl0.drop(['suma'], axis=1)
 
 
 def pregunta_10():
