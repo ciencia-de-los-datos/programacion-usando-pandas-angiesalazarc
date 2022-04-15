@@ -156,7 +156,7 @@ def pregunta_09():
     tbl0['year'] =  tbl0['_c3'].apply(lambda x: (str(x)[:4]))
     tbl0.drop(['suma'], axis=1)
 
-    return tbl0.drop(['suma'], axis=1)
+    return tbl0
 
 
 def pregunta_10():
