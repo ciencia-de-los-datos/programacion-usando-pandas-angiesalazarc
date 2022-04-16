@@ -186,7 +186,6 @@ def pregunta_11():
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c4 del archivo `tbl1.tsv`.
-
     Rta/
         _c0      _c4
     0     0    b,f,g
@@ -198,7 +197,12 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+
+    df4 = tbl1.sort_values('_c4')
+    df4['_c4'] = df4['_c4'].apply(lambda x:str(x))
+    df4 = df4.groupby(['_c0'], as_index=False).agg({'_c4':','.join})
+
+    return df4
 
 
 def pregunta_12():
