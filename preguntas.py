@@ -173,7 +173,6 @@ def pregunta_10():
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
 
-    tbl0['_c2'] = tbl0['_c2'].apply(lambda x:str(x))
     df3 = tbl0.sort_values('_c2')
     df3 = df3.groupby(['_c1'], as_index=False).agg({'_c2':':'.join})
 
