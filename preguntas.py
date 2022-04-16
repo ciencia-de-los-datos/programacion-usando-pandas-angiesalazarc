@@ -174,10 +174,11 @@ def pregunta_10():
     """
 
     df3 = tbl0.sort_values('_c2')
-    df3 = df3.groupby(['_c1'], as_index=False).agg({'_c2':':'.join})
+    df3['_c2'] = df3['_c2'].apply(lambda x:str(x))
     df3 = df3.reset_index()
-    df3.colums = ['_c1', '_c2']
-    
+    df3 = df3.groupby(['_c1'], as_index=False).agg({'_c2':':'.join})
+    df3.set_index('_c1', inplace = True)
+
     return df3
 
 
