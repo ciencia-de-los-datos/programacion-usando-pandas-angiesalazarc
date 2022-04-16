@@ -209,7 +209,6 @@ def pregunta_12():
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c5a y _c5b (unidos por ':') de la tabla `tbl2.tsv`.
-
     Rta/
         _c0                                  _c5
     0     0        bbb:0,ddd:9,ggg:8,hhh:2,jjj:3
@@ -220,7 +219,12 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    
+    df5 = tbl2.sort_values('_c5a')
+    df5['_c5'] = df5['_c5a'] + ':' + df5['_c5b'].map(str)
+    df5 = df5.groupby(['_c0'], as_index=False).agg({'_c5':','.join})
+    
+    return df5
 
 
 def pregunta_13():
